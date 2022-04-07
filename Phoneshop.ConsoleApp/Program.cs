@@ -7,8 +7,14 @@ namespace Phoneshop.ConsoleApp
     {   
 
         static public List<Phone> _phones = new(); //set up list of phones
-        
 
+        /*
+        notes to self 
+
+        \t match tab
+        \n new line
+        \x020 space
+        */
 
         static void Main()
         {
@@ -32,19 +38,17 @@ namespace Phoneshop.ConsoleApp
 
         private static bool MainMenu()
         {
+            //zorgen voor iets wat verkeerde input opvangt
             Console.Clear();
-            Console.WriteLine("Please choose the desired phone by pressing the corresponding number \n 1. Huawei P30\n 2. Samsung Galaxy A52\n 3. apple IPhone 11 \n 4. Google Pixel 4a \n 5. Xiaomi Redmi Note 10 Pro");
+            Console.WriteLine("Please choose the desired phone by pressing the corresponding number \n 1. " + _phones[0].Brand + "\t" + _phones[0].pType + "\n 2. " + _phones[1].Brand + "\t" + _phones[1].pType + "\n 3. " + _phones[2].Brand + "\t" + _phones[2].pType + "\n 4. " + _phones[3].Brand + "\t" + _phones[3].pType + "\n 5. " + _phones[4].Brand + "\t" + _phones[4].pType);
             var phones = Console.ReadLine();
 
 
-            switch (phones)
+            switch (phones) //inkorten, moet toch anders kunnen ;)
             {
                 case "1":
                     Console.Clear();
-                    Console.WriteLine(_phones[0].Brand);
-                    Console.WriteLine(_phones[0].pType);
-                    Console.WriteLine(_phones[0].Price);
-                    Console.WriteLine(_phones[0].Description);
+                    Console.WriteLine(_phones[0].Brand + "\x020" + _phones[0].pType + "\x020 €" + _phones[0].Price + "\n" + _phones[0].Description);
                     Console.WriteLine();
                     Console.WriteLine("Press any to go back to the main menu");
                     Console.ReadKey();
@@ -52,10 +56,7 @@ namespace Phoneshop.ConsoleApp
 
                 case "2":
                     Console.Clear();
-                    Console.WriteLine(_phones[1].Brand);
-                    Console.WriteLine(_phones[1].pType);
-                    Console.WriteLine(_phones[1].Price);
-                    Console.WriteLine(_phones[1].Description);
+                    Console.WriteLine(_phones[1].Brand + "\x020" + _phones[1].pType + "\x020 €" + _phones[1].Price + "\n" + _phones[1].Description);
                     Console.WriteLine("Press any to go back to the main menu");
                     Console.ReadKey();
                     return MainMenu();
