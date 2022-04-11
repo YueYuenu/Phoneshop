@@ -3,7 +3,27 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phoneshop.ConsoleApp", "Phoneshop.ConsoleApp\Phoneshop.ConsoleApp.csproj", "{1C599E6F-FA93-4DA7-B2BC-BBC3BB7EB3A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Phoneshop.ConsoleApp", "Phoneshop.ConsoleApp\Phoneshop.ConsoleApp.csproj", "{1C599E6F-FA93-4DA7-B2BC-BBC3BB7EB3A6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Phoneshop.Business", "Phoneshop.Business", "{2CA240C5-8B9B-4A46-8B0A-2B12767D68AF}"
+	ProjectSection(SolutionItems) = preProject
+		Phoneshop.ConsoleApp\PhoneService.cs = Phoneshop.ConsoleApp\PhoneService.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Phoneshop.Domain", "Phoneshop.Domain", "{AB67631B-37FE-4140-ABB0-FAC17325B7D4}"
+	ProjectSection(SolutionItems) = preProject
+		PhoneshopDomain.cs = PhoneshopDomain.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{2B4AC9BB-E3D9-4F3F-B117-A11695A51F39}"
+	ProjectSection(SolutionItems) = preProject
+		Phoneshop.ConsoleApp\Phone.cs = Phoneshop.ConsoleApp\Phone.cs
+		Phoneshop.ConsoleApp\Program.cs = Phoneshop.ConsoleApp\Program.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{0BCE48DE-F018-4102-B7F0-B3FF1229AA91}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interfaces", "Interfaces", "{F771B036-05D0-40DD-B924-8B8E48B82FA0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,6 +38,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1C599E6F-FA93-4DA7-B2BC-BBC3BB7EB3A6} = {0BCE48DE-F018-4102-B7F0-B3FF1229AA91}
+		{2B4AC9BB-E3D9-4F3F-B117-A11695A51F39} = {AB67631B-37FE-4140-ABB0-FAC17325B7D4}
+		{F771B036-05D0-40DD-B924-8B8E48B82FA0} = {AB67631B-37FE-4140-ABB0-FAC17325B7D4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D64CE317-6C12-4C31-86D3-1BF74D848B01}
