@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Phoneshop.ConsoleApp._1._Phoneshop.Business;
+using System;
+using System.Linq;
+using System.Text;
 
 namespace Phoneshop.ConsoleApp
 {
     internal class Program
-    {   
+    {
 
-        static public List<Phone> _phones = new(); //set up list of phones
+        static public List<Phone> _phones = new();
 
-        /*
-        notes to self 
-
-        \t match tab
-        \n new line
-        \x020 space
-        */
 
         static void Main()
         {
@@ -36,65 +31,44 @@ namespace Phoneshop.ConsoleApp
 
         }
 
-        private static bool MainMenu()
+        public static bool MainMenu()
         {
-            //zorgen voor iets wat verkeerde input opvangt
+            Console.OutputEncoding = Encoding.UTF8;
+            
+            //TODO zorgen voor iets wat verkeerde input opvangt
             Console.Clear();
-            Console.WriteLine("Please choose the desired phone by pressing the corresponding number \n 1. " + _phones[0].Brand + "\t" + _phones[0].pType + "\n 2. " + _phones[1].Brand + "\t" + _phones[1].pType + "\n 3. " + _phones[2].Brand + "\t" + _phones[2].pType + "\n 4. " + _phones[3].Brand + "\t" + _phones[3].pType + "\n 5. " + _phones[4].Brand + "\t" + _phones[4].pType);
-            var phones = Console.ReadLine();
-
-
-            switch (phones) //inkorten, moet toch anders kunnen ;)
+            var phoneService = new PhoneService();
+            var _phones = phoneService._phones;
+            Console.WriteLine("Please choose the desired phone by pressing the corresponding number\n");
+            foreach (Phone phone in _phones)
             {
-                case "1":
-                    Console.Clear();
-                    Console.WriteLine(_phones[0].Brand + "\x020" + _phones[0].pType + "\x020 €" + _phones[0].Price + "\n" + _phones[0].Description);
-                    Console.WriteLine();
-                    Console.WriteLine("Press any to go back to the main menu");
-                    Console.ReadKey();
-                    return MainMenu();
+                Console.WriteLine($"{_phones.Count} {_phones[0].Brand} \t{_phones[0].PType}");
+            }
+            
+             //Link to List in PhoneService, getphone?
+           
 
-                case "2":
-                    Console.Clear();
-                    Console.WriteLine(_phones[1].Brand + "\x020" + _phones[1].pType + "\x020 €" + _phones[1].Price + "\n" + _phones[1].Description);
-                    Console.WriteLine("Press any to go back to the main menu");
-                    Console.ReadKey();
-                    return MainMenu();
+            var userInput = Console.ReadKey(); //TODO kijken of did niet beter kan
+            int phones;
 
-                case "3":
-                    Console.Clear();
-                    Console.WriteLine(_phones[2].Brand);
-                    Console.WriteLine(_phones[2].pType);
-                    Console.WriteLine(_phones[2].Price);
-                    Console.WriteLine(_phones[2].Description);
-                    Console.WriteLine("Press any to go back to the main menu");
-                    Console.ReadKey();
-                    return MainMenu();
+            if (char.IsDigit(userInput.KeyChar))
+            {
+                phones = int.Parse(userInput.KeyChar.ToString());
+                Console.Clear();
+                Console.WriteLine($"{_phones[0].Brand} {_phones[0].PType} €{_phones[0].PriceVAT} without VAT € - \n{_phones[0].Description}");
+                Console.WriteLine("Press any to go back to the main menu\n");
+                Console.ReadKey();
+                return MainMenu();
+            }
 
-                case "4":
-                    Console.Clear();
-                    Console.WriteLine(_phones[3].Brand);
-                    Console.WriteLine(_phones[3].pType);
-                    Console.WriteLine(_phones[3].Price);
-                    Console.WriteLine(_phones[3].Description);
-                    Console.WriteLine("Press any to go back to the main menu");
-                    Console.ReadKey();
-                    return MainMenu();
-
-                case "5":
-                    Console.Clear();
-                    Console.WriteLine(_phones[4].Brand);
-                    Console.WriteLine(_phones[4].pType);
-                    Console.WriteLine(_phones[4].Price);
-                    Console.WriteLine(_phones[4].Description);
-                    Console.WriteLine("Press any to go back to the main menu");
-                    Console.ReadKey();
-                    return MainMenu();
-
-
-
-
-
+            else
+            {
+                phones = -1;
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("User did not input a number");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.ReadKey();
+                return MainMenu();
             }
             
             return true;
