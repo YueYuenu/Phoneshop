@@ -1,15 +1,24 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Phoneshop.ConsoleApp._1._Phoneshop.Business
 {
     public class PhoneService
     {
+        public Phone GetPhone(int i)
+        {
+            i = 1;
+            return _phones.FirstOrDefault(Phone => Phone.Id == i++);
+        }
+
+        
+
         public List<Phone> _phones = new()
         {
 
             new Phone
             {
-                Id = 1,
+                
                 Brand = "Huawei",
                 PType = "P30",
                 PriceVAT = 697,
@@ -20,6 +29,7 @@ namespace Phoneshop.ConsoleApp._1._Phoneshop.Business
 
             new Phone
             {
+                
                 Brand = "Samsung",
                 PType = "Galaxy A52",
                 PriceVAT = 399,
@@ -27,7 +37,8 @@ namespace Phoneshop.ConsoleApp._1._Phoneshop.Business
             },
 
             new Phone
-            {
+            {   
+                Id=3,
                 Brand = "Apple",
                 PType = "IPhone 11",
                 PriceVAT = 619,
@@ -35,14 +46,16 @@ namespace Phoneshop.ConsoleApp._1._Phoneshop.Business
                 "hoef je enkel en alleen naar je toestel te kijken om te ontgrendelen Het toestel heeft een lange accuduur dankzij een energiezuinige processor"
             },
             new Phone
-            {
+            {   
+                Id=4,
                 Brand = "Google",
                 PType = "Pixel 4a",
                 PriceVAT = 411,
                 Description = "12.2 megapixel camera, 4k videokwaliteit 5.81 inch OLED scherm 128 GB opslaggeheugen 3140 mAh accucapaciteit"
             },
             new Phone
-            {
+            {   
+                Id=5,
                 Brand = "Xiaomi",
                 PType = "Redmi Note 10 Pro",
                 PriceVAT = 298,
